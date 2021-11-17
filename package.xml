@@ -14,20 +14,20 @@
 
   <build_depend>git</build_depend>
   <build_depend>doxygen</build_depend>
-  <build_depend condition="$ROS_PYTHON_VERSION == 2">python-lxml</build_depend>
-  <build_depend condition="$ROS_PYTHON_VERSION == 3">python3-lxml</build_depend>
+  <!-- <build_depend condition="$ROS_PYTHON_VERSION == 2">python-lxml</build_depend>
+  <build_depend condition="$ROS_PYTHON_VERSION == 3">python3-lxml</build_depend> -->
   <doc_depend>doxygen</doc_depend>
-  <doc_depend condition="$ROS_PYTHON_VERSION == 2">python-lxml</doc_depend>
+  <!-- <doc_depend condition="$ROS_PYTHON_VERSION == 2">python-lxml</doc_depend>
   <doc_depend condition="$ROS_PYTHON_VERSION == 3">python3-lxml</doc_depend>
   <depend condition="$ROS_PYTHON_VERSION == 2">python</depend>
   <depend condition="$ROS_PYTHON_VERSION == 2">python-numpy</depend>
   <depend condition="$ROS_PYTHON_VERSION == 3">python3</depend>
-  <depend condition="$ROS_PYTHON_VERSION == 3">python3-numpy</depend>
+  <depend condition="$ROS_PYTHON_VERSION == 3">python3-numpy</depend> -->
   <depend>eigen</depend>
   <depend>boost</depend>
   <depend>assimp</depend>
   <depend>octomap</depend>
-  <depend>eigenpy</depend>
+  <!-- <depend>eigenpy</depend> -->
 
   <buildtool_depend>cmake</buildtool_depend>
   <export>
