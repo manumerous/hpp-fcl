@@ -69,7 +69,7 @@ SET(CMAKE_MODULE_PATH
   ${CMAKE_MODULE_PATH})
 
 # If needed, fix CMake policy for APPLE systems
-APPLY_DEFAULT_APPLE_CONFIGURATION()
+# APPLY_DEFAULT_APPLE_CONFIGURATION()
 
 COMPUTE_PROJECT_ARGS(PROJECT_ARGS LANGUAGES CXX)
 PROJECT(${PROJECT_NAME} ${PROJECT_ARGS})
@@ -77,7 +77,7 @@ PROJECT(${PROJECT_NAME} ${PROJECT_ARGS})
 # Default C++ version should be C++11
 CHECK_MINIMAL_CXX_STANDARD(11 ENFORCE)
 
-OPTION(BUILD_PYTHON_INTERFACE "Build the python bindings" ON)
+OPTION(BUILD_PYTHON_INTERFACE "Build the python bindings" OFF)
 CMAKE_DEPENDENT_OPTION(GENERATE_PYTHON_STUBS "Generate the Python stubs associated to the Python library" OFF BUILD_PYTHON_INTERFACE OFF)
 
 #IF(WIN32)
@@ -108,6 +108,8 @@ ELSE(WIN32)
   ADD_PROJECT_DEPENDENCY(Boost REQUIRED chrono serialization)
 ENDIF(WIN32)
 if(BUILD_PYTHON_INTERFACE)
+  FINDPYTHON()
+  search_for_boost_python(REQUIRED)
   find_package(Boost REQUIRED COMPONENTS system)
 endif(BUILD_PYTHON_INTERFACE)
 
@@ -259,12 +261,12 @@ SET(${PROJECT_NAME}_HEADERS
   include/hpp/fcl/timings.h
   )
 
-add_subdirectory(doc)
+# add_subdirectory(doc)
 add_subdirectory(src)
 if (BUILD_PYTHON_INTERFACE)
   add_subdirectory(python)
 endif ()
-add_subdirectory(test)
+# add_subdirectory(test)
 
 pkg_config_append_libs("hpp-fcl")
 IF(HPP_FCL_HAS_OCTOMAP)
